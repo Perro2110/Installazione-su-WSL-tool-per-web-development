@@ -41,14 +41,57 @@ php -r 'echo "\n\n Your PHP installation is working fine. \n\n";'
 ```
 ## MySQL Workbench
 >Vi sono due metodi principali :
-> - Usare MySQL Workbench **da Microsoft Windows**
-> - Provare installazione diretta **da Ubuntu (sconsigliata/più instabile)**
+> - Scelta 1:   Usare MySQL Workbench **da Microsoft Windows**
+> - Scelta 2:   Provare installazione diretta **da Ubuntu (sconsigliata/più instabile)**
 
-### Scelta 1:
+ ### Scelta 1:
+
 Installare MySQL workbench  al seguente link https://dev.mysql.com/downloads/workbench/ creare poi una nuova connesione in local host.
 
-### Scelta 2:
-lanciare i seguenti pre command: 
+Se nell'atto della connessione/creazione di connessione dopo l'inserimento negli appositi campi: 
+
+ > ***Connection name*** ⇒ Con nome deciso dall'utente <br>
+  ***Connection method*** ⇒ da tenere di default <br>
+  ***Hostname*** ⇒ 127.0.0.1  (default) <br>
+  ***Port***  ⇒ 3306 (default) <br>
+  ***Username*** ⇒ root (default) <br>
+  ***Password*** ⇒  root (default) <br>
+   *(In pratica si tenga quasi tutto di default tranne il ***Connection name***.)*
+
+risultasse un qualunque errore di connessione o di permission denied (cosa molto frequente) si prosegua come segue: 
+
+## Creazione di un nuovo utente per generare e gestire la connesione (Risoluzione a problemi vari):
+All'interno di WSL mandare in esecuzione i seguenti comandi:
+```
+sudo mysql -u root -p
+```
+rispondere alla richiesta di sudo con propria password di sistema e rispondere alla seconda richiesta di password per accesso a root di mysql attraverso ```root``` come risposta.
+Digitare poi le due query come segue: 
+mysql> ```CREATE USER 'local_user'@'localhost' IDENTIFIED BY 'password';```
+mysql>  ```GRANT ALL ON . TO 'local_user'@'localhost' WITH GRANT OPTION;```
+A seguire ricreare/instaurare una nuova connesione su MySQL workbench con i parametri richiesti in input come segue: 
+> ***Connection name*** ⇒  Con nome deciso dall'utente <br>
+> ***Connection method*** ⇒  da tenere di default <br>
+> ***Hostname*** ⇒  127.0.0.1  (default) <br>
+ ***Port*** ⇒  3306 (default) <br>
+ ***Username*** ⇒  local_user (settato dalla query) <br>
+ ***Password*** ⇒   password  (settato dalla query) <br>
+---
+Da ora quando si vuole usare MySQL workbench è possibile farlo alla connesione appena creata mentre se si vogliono mandare query o scrivere codice da CLI di WSL questo è possibile digitando su WSL il comando:
+```
+sudo mysql -u local_user -p
+```
+è autenticandosi come richiesto.
+
+
+---
+### <div align="center">Siete giunti alla conclusione ora il vostro ambiente è completo e funzionante !! </div>
+---
+
+ ### Scelta 2:
+ 
+ *<div align="center">(Si ricorda essere una "strada" sconsigliata)</div>*
+lanciare i seguenti pre-command: 
 -   ```sudo apt-get update```
 -   ```sudo apt-get upgrade```
 -   ```sudo apt-get install libpython2.7-minimal```
@@ -66,3 +109,7 @@ Se invece è presente la versione **Ubuntu 20.10 o 21.04** o altre versioni e av
 Cercando su Google è possibile trovare la **guida per Ubuntu 21.04**:
 
 [https://tutorialforlinux.com/2021/03/30/step-by-step-mysql-workbench-ubuntu-21-04-installation-guide/](https://tutorialforlinux.com/2021/03/30/step-by-step-mysql-workbench-ubuntu-21-04-installation-guide/)
+
+---
+### <div align="center">Siete giunti alla conclusione ora il vostro ambiente è completo e funzionante !! </div>
+---
