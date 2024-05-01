@@ -66,9 +66,9 @@ All'interno di WSL mandare in esecuzione i seguenti comandi:
 sudo mysql -u root -p
 ```
 rispondere alla richiesta di sudo con propria password di sistema e rispondere alla seconda richiesta di password per accesso a root di mysql attraverso ```root``` come risposta.
-Digitare poi le due query come segue: 
-mysql> ```CREATE USER 'local_user'@'localhost' IDENTIFIED BY 'password';```
-mysql>  ```GRANT ALL ON *.* TO 'local_user'@'localhost' WITH GRANT OPTION```
+Digitare poi le due query come segue: <br>
+mysql> ```CREATE USER 'local_user'@'localhost' IDENTIFIED BY 'password';```<br>
+mysql>  ```GRANT ALL ON *.* TO 'local_user'@'localhost' WITH GRANT OPTION```<br>
 A seguire ricreare/instaurare una nuova connesione su MySQL workbench con i parametri richiesti in input come segue: 
 > ***Connection name*** ⇒  Con nome deciso dall'utente <br>
 > ***Connection method*** ⇒  da tenere di default <br>
