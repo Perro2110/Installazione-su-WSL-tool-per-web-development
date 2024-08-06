@@ -1,5 +1,5 @@
 # <a href="https://learn.microsoft.com/it-it/windows/wsl/" target="_blank" rel="noreferrer"><img src="https://store-images.s-microsoft.com/image/apps.61786.14131597032361940.38d2a067-3798-455f-934a-f69935156b3d.eb49d3ac-e311-4e6f-b89b-f1fe8db9d73b" alt="WSL" width="35" height="35"/></a> Installazione su WSL:
-In questo tutorial installeremo: 
+In questa guida installeremo: 
 1) MySQL (il dbms che useremo)
 2) L'interprete del linguaggio PHP (il linguaggio che useremo)
 3) Il web server apache (non necessario, ma utile)
